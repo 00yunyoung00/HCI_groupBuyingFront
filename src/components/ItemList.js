@@ -4,7 +4,7 @@ import Item from "./Item";
 import Paginations from "./Pagination";
 import { Col, Row, Breadcrumb, BreadcrumbItem } from "reactstrap";
 
-import "./breadcrumble.css"
+import "./css/breadcrumble.css"
 
 const ItemList = () =>{
 

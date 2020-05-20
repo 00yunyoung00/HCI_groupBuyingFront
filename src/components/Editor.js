@@ -1,0 +1,74 @@
+import React, { useRef, useEffect } from 'react';
+import Quill from 'quill';
+import 'quill/dist/quill.bubble.css';
+import styled from 'styled-components';
+import { Card, Button } from 'reactstrap';
+
+import "./css/qnaEditor.css"
+
+const TitleInput = styled.input`
+  font-size: 1.5rem;
+  outline: none;
+  padding-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px solid;
+  margin-bottom: 1rem;
+  width: 100%;
+`;
+const QuillWrapper = styled.div`
+  /* 최소 크기 지정 및 padding 제거 */
+  .ql-editor {
+    padding: 0;
+    min-height: 130px;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+  .ql-editor.ql-blank::before {
+    left: 0px;
+  }
+`;
+
+const boxStyle={
+    paddingTop: '5rem',
+    paddingBottom: '5rem',
+    border:'1px',
+    margin:'3rem'
+}
+
+const Editor = () => {
+  const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
+  const quillInstance = useRef(null); // Quill 인스턴스를 설정
+
+  useEffect(() => {
+    quillInstance.current = new Quill(quillElement.current, {
+      theme: 'bubble',
+      placeholder: '내용을 작성하세요...',
+      modules: {
+        // 더 많은 옵션
+        // https://quilljs.com/docs/modules/toolbar/ 참고
+        toolbar: [
+          [{ header: '1' }, { header: '2' }],
+          ['bold', 'italic', 'underline', 'strike'],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          ['blockquote', 'code-block', 'link', 'image'],
+        ],
+      },
+    });
+  }, []);
+
+  return (
+      <div className="editorBox">
+        <Card>
+            <div style={{boxStyle}}>
+            <TitleInput placeholder="제목을 입력하세요" />
+            <QuillWrapper>
+                <div ref={quillElement} />
+            </QuillWrapper>
+            <Button style={{float:'right'}}>Submit</Button>
+            </div>
+        </Card>
+        </div>
+  );
+};
+
+export default Editor;

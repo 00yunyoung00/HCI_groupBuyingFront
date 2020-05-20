@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink } from "reactstrap"
-
 import titleimg from "../image/mario.png";
 import classnames from "classnames";
 
+import ItemInformation from "./ItemInformation";
+import Notices from "./Notice";
+import Editor from "./Editor";
+import QnAs from "./QnAs";
 
 const ItemDetail = () =>{
 
@@ -26,7 +29,7 @@ const ItemDetail = () =>{
                     <img src={titleimg} style={{width:'100%'}}/>
                 </Col>
                 <Col md={8}>
-                    item name
+                    item name<p/> brief information
                 </Col>
             </Row>
             <div>
@@ -56,13 +59,14 @@ const ItemDetail = () =>{
                 </Nav>
                 <TabContent activeTab={activeTab}>
                     <TabPane tabId="1">
-                        item detail information
+                        <ItemInformation />
                     </TabPane>
                     <TabPane tabId="2">
-                        notice
+                        <Notices />
                     </TabPane>
                     <TabPane tabId="3">
-                        qna
+                        <Editor />
+                        <QnAs/>
                     </TabPane>
                 </TabContent>
             </div>
