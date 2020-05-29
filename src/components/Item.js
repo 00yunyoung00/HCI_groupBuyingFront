@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 import thumbnailImg from "../image/mario.png";
 
-const Item = () => {
+const Item = ({ path }) => {
 
     return(
-            <Link to='/itemDetail'>
+            <Link to={`/itemDetail/${path}`}>
                 <Card>
                     <CardImg top width="100%" src={thumbnailImg} alt="thumbnail image"/>
                     <CardBody>

@@ -45,12 +45,14 @@ const App = () => {
           <Col md={10}>
           <div style={contentBoxStyle}>
             <Route exact path="/" component={ItemList}/>
-            <Route exact path="/itemList" component={ItemList}/>
-            <Route exact path="/itemDetail" component={ItemDetail}/>
-            <Route exact path="/submitForm" component={SubmitForm}/>
-            <Route exact path="/surveyList" component={SurveyList}/>
-            <Route exact path="/surveyDetail" component={SurveyDetail}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/demandSurvey" component={ItemList}/>
+            <Route exact path="/surveyDetail" component={SurveyDetail}/>
+            <Route exact path="/ongoing" component={ItemList}/>
+            <Route exact path="/manufacturing" component={ItemList}/>
+            <Route exact path="/finished" component={ItemList}/>
+            <Route exact path="/itemDetail/:path" component={ItemDetail}/>
+            <Route exact path="/submitForm" component={SubmitForm}/>
           </div></Col>
           </Row>
         </Container>

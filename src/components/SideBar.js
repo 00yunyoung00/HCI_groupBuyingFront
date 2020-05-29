@@ -12,10 +12,10 @@ const SideBar = () =>{
             <Link to="/">My GBlist</Link>
             <Link to="/">HostingList</Link>
             <hr />
-            <Link to="/surveyList">demandSurvey</Link>
-            <Link to="/itemList">ongoing</Link>
-            <Link to="/itemList">manufacturing</Link>
-            <Link to="/itemList">finished</Link>
+            <Link to="/demandSurvey">demandSurvey</Link>
+            <Link to="/ongoing">ongoing</Link>
+            <Link to="/manufacturing">manufacturing</Link>
+            <Link to="/finished">finished</Link>
         </div>
     )
 }

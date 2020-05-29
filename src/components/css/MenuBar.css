@@ -3,6 +3,7 @@
     text-align: center;
     padding: 0;
     margin: 0;
+    text-decoration: none;
   }
  
  .logo{
@@ -10,23 +11,21 @@
     background-color: #fff;
     color: #000000;
     display:inline-block;    
-    width: 180px;
+    width: 20%;
     height: 60px;
     line-height: 60px;
+    text-decoration: none;
   }
 
   .menu {
     background-color: #F2A391;
     font-family: 'Oswald', sans-serif;
     font-size: 1.0em;
-    line-height: 40px;
-    height: 40px;
-    width: 200px;
     border-bottom: 1px solid #F2A391;
     display: inline-block;
     color: #fff;
     text-decoration: none;
-    transition: .3s background-color;
+    transition: .3s font-weight;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -37,14 +36,16 @@
 
   .menu a{
     color:#fff;
+    text-decoration: none;
   }
    
   .menu:hover {
-    background-color: #BF907E;
+    text-decoration: none;
+    font-weight: bold;
   }
    
   .nav a.active {
-    background-color: #fff;
+    background-color: rgb(109, 57, 57);
     color: #444;
     cursor: default;
   }

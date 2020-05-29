@@ -8,7 +8,9 @@ import Notices from "./Notice";
 import Editor from "./Editor";
 import QnAs from "./QnAs";
 
-const ItemDetail = () =>{
+const ItemDetail = ({ match }) =>{
+    var pastPath=match.params.path;
+    console.log(pastPath)
 
     const [activeTab, setActiveTab] = useState('1');
 
@@ -21,7 +23,7 @@ const ItemDetail = () =>{
         <div>
             <Breadcrumb tag="nav" listTag="div">
                 <BreadcrumbItem tag="a" href="#">Home</BreadcrumbItem>
-                <BreadcrumbItem tag="a" href="#">Ongoing</BreadcrumbItem>
+                <BreadcrumbItem tag="a" href="#">{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
             </Breadcrumb>
             <Row>
