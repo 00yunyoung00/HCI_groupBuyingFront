@@ -1,0 +1,19 @@
+.itemNameBox{
+    height:10%;
+    font-size:2em;
+    margin-bottom:5%;
+}
+
+.briefInfoBox{
+    height:20%;
+}
+
+.priceInfoBox{
+    height:10%;
+    font-size:1.5em;
+    margin-bottom:10%;
+}
+
+.ButtonBox{
+    height:20%;
+}

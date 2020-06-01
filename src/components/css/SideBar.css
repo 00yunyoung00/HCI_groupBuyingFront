@@ -12,6 +12,7 @@
   
   .vertical-sidebar a:hover {
     background-color: #ccc; /* Dark grey background on mouse-over */
+    text-decoration: none;
   }
   
   .vertical-sidebar a.active {

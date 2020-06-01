@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink } from "reactstrap"
+import { Link } from "react-router-dom";
+import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import titleimg from "../image/mario.png";
 import classnames from "classnames";
 
@@ -8,22 +9,31 @@ import Notices from "./Notice";
 import Editor from "./Editor";
 import QnAs from "./QnAs";
 
+import './css/ItemDetail.css'
+
 const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
-    console.log(pastPath)
 
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
       if(activeTab !== tab) setActiveTab(tab);
     }
+
+    if(pastPath==="demandSurvey"){
+        var btn = <Link to='/surveyForm'><Button>submit</Button></Link>
+    }else if(pastPath==="ongoing"){
+        btn = <Link to='/submitForm'><Button>submit</Button></Link>
+    }else{
+        btn=null
+    }
   
 
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
-                <BreadcrumbItem tag="a" href="#">Home</BreadcrumbItem>
-                <BreadcrumbItem tag="a" href="#">{pastPath}</BreadcrumbItem>
+                <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
+                <BreadcrumbItem tag="a" href={`/${pastPath}`}>{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
             </Breadcrumb>
             <Row>
@@ -31,7 +41,18 @@ const ItemDetail = ({ match }) =>{
                     <img src={titleimg} style={{width:'100%'}}/>
                 </Col>
                 <Col md={8}>
-                    item name<p/> brief information
+                    <Container className="itemNameBox">
+                        item name
+                    </Container>
+                    <Container className="briefInfoBox">
+                        brief information
+                    </Container>
+                    <Container className="priceInfoBox">
+                        price : $$
+                    </Container>
+                    <Container className="ButtonBox">
+                        {btn}
+                    </Container>
                 </Col>
             </Row>
             <div>
