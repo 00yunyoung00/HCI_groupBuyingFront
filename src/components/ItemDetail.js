@@ -35,9 +35,9 @@ const ItemDetail = ({ match }) =>{
     }
 
     if(pastPath==="demandSurvey"){
-        var btn = <Link to='/surveyForm'><Button>submit</Button></Link>
+        var btn = <Link to={`/submitForm/${idx}`}><Button>submit</Button></Link>
     }else if(pastPath==="ongoing"){
-        btn = <Link to='/submitForm'><Button>submit</Button></Link>
+        btn = <Link to={`/submitForm/${idx}`}><Button>submit</Button></Link>
     }else{
         btn=null
     }

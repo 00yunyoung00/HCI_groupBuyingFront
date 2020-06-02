@@ -52,7 +52,7 @@ const App = () => {
             <Route exact path="/manufacturing" component={ItemList}/>
             <Route exact path="/finished" component={ItemList}/>
             <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
-            <Route exact path="/submitForm" component={SubmitForm}/>
+            <Route exact path="/submitForm/:idx" component={SubmitForm}/>
           </div></Col>
           </Row>
         </Container>
