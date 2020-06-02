@@ -51,7 +51,7 @@ const App = () => {
             <Route exact path="/ongoing" component={ItemList}/>
             <Route exact path="/manufacturing" component={ItemList}/>
             <Route exact path="/finished" component={ItemList}/>
-            <Route exact path="/itemDetail/:path" component={ItemDetail}/>
+            <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
             <Route exact path="/submitForm" component={SubmitForm}/>
           </div></Col>
           </Row>

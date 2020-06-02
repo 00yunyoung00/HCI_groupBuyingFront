@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 
 import thumbnailImg from "../image/mario.png";
 
-const Item = ({ path }) => {
+const Item = ({ path, img, name, idx }) => {
 
     return(
-            <Link to={`/itemDetail/${path}`}>
-                <Card>
-                    <CardImg top width="100%" src={thumbnailImg} alt="thumbnail image"/>
+            <Link to={`/itemDetail/${path}/${idx}`}>
+                <Card style={{height:'100%'}}>
+                    <CardImg top width="100px" height="160px" src={img} alt="thumbnail image"/>
                     <CardBody>
-                        <CardTitle>Item Name</CardTitle>
-                        <CardSubtitle>Simple description</CardSubtitle>
+                        <CardTitle>{name}</CardTitle>
                     </CardBody>
                 </Card>
             </Link>
