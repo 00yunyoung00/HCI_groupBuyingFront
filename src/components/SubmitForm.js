@@ -1,19 +1,10 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import { Breadcrumb, BreadcrumbItem, Row, Col, Container, Form, 
             FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-import titleimg from "../image/mario.png";
 
 import './css/ItemDetail.css'
-
-import img1 from "../image/1_GlitterPurse1.png";
-import img2 from "../image/2_GreenJumper.png";
-import img3 from "../image/3_Airpod1.jpg";
-import img4 from "../image/4_NabyJumper.jpg";
-import img5 from "../image/5_Badge.jpg";
-import img6 from "../image/6_PhoneCase.jpg";
-import img7 from "../image/7_WhiteDopper2.jpg";
-import img8 from "../image/8_Hoody1.jpg";
 
 
 const SubmitForm = ({ history, match }) =>{
@@ -23,20 +14,16 @@ const SubmitForm = ({ history, match }) =>{
       const toggle = () => setModal(!modal);
 
       const idx=match.params.idx;
+      const items=useSelector(items=>items.items.items)
 
-      var imgs=[];
-      imgs.push(img1);
-      imgs.push(img2);
-      imgs.push(img3);
-      imgs.push(img4);
-      imgs.push(img5);
-      imgs.push(img6);
-      imgs.push(img7);
-      imgs.push(img8);
-
-      var names=["Glitter Purse ","Ewha-Green Baseball Jumper","Teddy AirPod Case", "1886 Navy Baseball Jumper",
-    "Ewha Night Sky Badge", "Ewha Blossom Smartphone Case", "Ewha White Bench Parka", "1886 Hoody"]
-
+      var item=null;
+      for(var i=0; i<items.length; i++){
+          if(items[i].idx===idx){
+              item=items[i];
+              break;
+          }
+      }
+      
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
@@ -47,17 +34,17 @@ const SubmitForm = ({ history, match }) =>{
             </Breadcrumb>
             <Row>
                 <Col me={4}>
-                    <img src={imgs[idx-1]} style={{width:'100%'}}/>
+                    <img src={item.img} style={{width:'100%'}}/>
                 </Col>
                 <Col md={8}>
                     <Container className="itemNameBox">
-                        {names[idx-1]}
+                        {item.name}
                     </Container>
                     <Container className="briefInfoBox">
                         brief information
                     </Container>
                     <Container className="priceInfoBox">
-                        price : 50,000
+                        price : {item.price}
                     </Container>
                 </Col>
             </Row>
