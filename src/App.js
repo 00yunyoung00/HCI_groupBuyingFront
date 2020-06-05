@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Route, BrowserRouter } from "react-router-dom";
 import { Row, Col } from "reactstrap";
-
 import ItemList from './components/ItemList';
 import ItemDetail from './components/ItemDetail';
 import SubmitForm from './components/SubmitForm';
@@ -14,6 +13,16 @@ import Footer from './components/Footer';
 
 import { Container } from 'reactstrap';
 
+function useWindow(){ //리사이즈용
+  const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
+  useEffect(()=>{
+    const handleResize=()=>{
+      setSize([window.innerHeight, window.innerWidth]);
+    };
+  window.addEventListener("resize", handleResize);
+  },[]);
+  return size;
+}
 const App = () => {
   const sideBarBoxStyle={
       float: 'left',
