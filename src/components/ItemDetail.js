@@ -1,7 +1,7 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
-import titleimg from "../image/mario.png";
 import classnames from "classnames";
 
 import ItemInformation from "./ItemInformation";
@@ -11,27 +11,26 @@ import QnAs from "./QnAs";
 
 import './css/ItemDetail.css'
 
-import img1 from "../image/1_GlitterPurse1.png";
-import img2 from "../image/2_GreenJumper.png";
-import img3 from "../image/3_Airpod1.jpg";
-import img4 from "../image/4_NabyJumper.jpg";
-import img5 from "../image/5_Badge.jpg";
-import img6 from "../image/6_PhoneCase.jpg";
-import img7 from "../image/7_WhiteDopper2.jpg";
-import img8 from "../image/8_Hoody1.jpg";
-
 const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
 
-    var names=["Glitter Purse ","Ewha-Green Baseball Jumper","Teddy AirPod Case", "1886 Navy Baseball Jumper",
-    "Ewha Night Sky Badge", "Ewha Blossom Smartphone Case", "Ewha White Bench Parka", "1886 Hoody"]
-
+    
     const [activeTab, setActiveTab] = useState('1');
 
     const toggle = tab => {
       if(activeTab !== tab) setActiveTab(tab);
+    }
+
+    const items=useSelector(items=>items.items.items);
+
+    var item=null;
+    for(var i=0; i<items.length; i++){
+        if(items[i].idx===idx){
+            item=items[i];
+            break;
+        }
     }
 
     if(pastPath==="demandSurvey"){
@@ -41,17 +40,6 @@ const ItemDetail = ({ match }) =>{
     }else{
         btn=null
     }
-    
-    var imgs=[];
-    imgs.push(img1);
-    imgs.push(img2);
-    imgs.push(img3);
-    imgs.push(img4);
-    imgs.push(img5);
-    imgs.push(img6);
-    imgs.push(img7);
-    imgs.push(img8);
-    
 
     return(
         <div>
@@ -62,17 +50,17 @@ const ItemDetail = ({ match }) =>{
             </Breadcrumb>
             <Row>
                 <Col me={4}>
-                    <img src={imgs[idx-1]} style={{width:'100%', margin:'5%'}}/>
+                    <img src={item.img} style={{width:'100%', margin:'5%'}}/>
                 </Col>
                 <Col md={8}>
                     <Container className="itemNameBox">
-                        {names[idx-1]}
+                        {item.name}
                     </Container>
                     <Container className="briefInfoBox">
                         brief information
                     </Container>
                     <Container className="priceInfoBox">
-                        price : 50,000
+                        price : {item.price}
                     </Container>
                     <Container className="ButtonBox">
                         {btn}
@@ -106,7 +94,7 @@ const ItemDetail = ({ match }) =>{
                 </Nav>
                 <TabContent activeTab={activeTab}>
                     <TabPane tabId="1">
-                        <ItemInformation img={imgs[idx-1]}/>
+                        <ItemInformation img={item.img}/>
                     </TabPane>
                     <TabPane tabId="2">
                         <Notices />

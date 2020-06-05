@@ -2,8 +2,6 @@ import React from "react"
 import { Card, CardImg, CardTitle, CardSubtitle, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 
-import thumbnailImg from "../image/mario.png";
-
 const Item = ({ path, img, name, idx }) => {
 
     return(
