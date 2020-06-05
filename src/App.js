@@ -12,7 +12,6 @@ import SideBar from './components/SideBar';
 import Footer from './components/Footer';
 
 import { Container } from 'reactstrap';
-import itemListContainer from './containers/itemListContainer';
 
 function useWindow(){ //리사이즈용
   const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
