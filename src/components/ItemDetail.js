@@ -60,7 +60,7 @@ const ItemDetail = ({ match }) =>{
                         brief information
                     </Container>
                     <Container className="priceInfoBox">
-                        price : {item.price}
+                        price : {item.price}, {item.currentNumber}
                     </Container>
                     <Container className="ButtonBox">
                         {btn}

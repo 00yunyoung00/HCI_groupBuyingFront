@@ -21,7 +21,7 @@ const ItemList = ({ location }) =>{
         for(var j=0; j<4; j++){
             const temp=items.items[k];
             console.log(temp);
-            Items.push(<Col><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} /></Col>)
+            Items.push(<Col><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
             k++;
             if(k>=9) k=0;
         }

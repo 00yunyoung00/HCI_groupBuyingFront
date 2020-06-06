@@ -10,7 +10,6 @@ import Login from './components/Login';
 import MenuBar from './components/MenuBar';
 import SideBar from './components/SideBar';
 import Footer from './components/Footer';
-
 import { Container } from 'reactstrap';
 
 function useWindow(){ //리사이즈용
