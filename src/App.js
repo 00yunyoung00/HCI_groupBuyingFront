@@ -11,7 +11,7 @@ import MenuBar from './components/MenuBar';
 import SideBar from './components/SideBar';
 import Footer from './components/Footer';
 import { Container } from 'reactstrap';
-
+import Carousel from './components/Carousel'
 function useWindow(){ //리사이즈용
   const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
   useEffect(()=>{
@@ -51,6 +51,7 @@ const App = () => {
             <Col md={2}>
           <div style={sideBarBoxStyle}><SideBar/></div></Col>
           <Col md={10}>
+            <Carousel></Carousel>
           <div style={contentBoxStyle}>
             <Route exact path="/" component={ItemList}/>
             <Route exact path="/login" component={Login}/>
