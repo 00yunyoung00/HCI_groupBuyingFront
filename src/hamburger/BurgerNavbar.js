@@ -34,15 +34,18 @@ render() {
             </MDBNavbarBrand>
             <MDBHamburgerToggler color="#d3531a" id="hamburger1" onClick={()=> this.toggleSingleCollapse('collapse1')} />
               <MDBCollapse isOpen={this.state.collapse1} navbar>
-                <MDBNavbarNav left style={{textAlign: 'center'}}>
-                <p>  <MDBNavItem >
+               <MDBNavbarNav left style={{textAlign: 'center'}}>
+              <p/>  <p>  <MDBNavItem >
                     <Link to="/demandSurvey" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demand Survey</Link>
                   </MDBNavItem></p>
                  <p> <MDBNavItem active>
                     <Link to="/ongoing" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ongoing Project</Link>
                   </MDBNavItem> </p>
                  <p> <MDBNavItem>
-                    <Link to="/finished" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Project</Link>
+                    <Link to="/finished" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Project</Link>
+                  </MDBNavItem> </p>
+                  <p> <MDBNavItem>
+                    <Link to="/newProject" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Group Buying</Link>
                   </MDBNavItem> </p>
                 </MDBNavbarNav>
              </MDBCollapse>

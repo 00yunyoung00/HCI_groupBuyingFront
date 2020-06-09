@@ -6,7 +6,7 @@ import Paginations from "./Pagination";
 import { Col, Row, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import CarouselPage from './CarouselPage.js';
 import "./css/breadcrumble.css"
-
+import {FaChevronRight} from "react-icons/fa";
 const ItemList = ({ location }) =>{
     var path=location.pathname;
     path = path.replace("/","");
@@ -27,7 +27,8 @@ const ItemList = ({ location }) =>{
             k++;
             if(k>=9) k=0;
         }
-        ItemList.push(<Row style={{margin:'10px'}}>{Items}</Row>)
+        ItemList.push(<div><h4 style={{margin: '30px'}}>Spring Collections {i+1} <FaChevronRight color="gray"/></h4>
+        <Row style={{margin:'10px'}}>{Items}</Row></div>)
         Items=[];
     }
 
@@ -40,7 +41,6 @@ const ItemList = ({ location }) =>{
             </Breadcrumb>
             </div>
             <SearchBar style={{marginLeft:'auto', marginRight:'auto', marginBottom:'10px'}}/>
-            
             {ItemList}
             <Paginations/>
         </div>

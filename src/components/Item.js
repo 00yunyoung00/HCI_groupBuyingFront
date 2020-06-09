@@ -10,11 +10,8 @@ const FontSize={
 
 const Item = ({ path, img, name, idx, price, currentNumber, minimumNumber, leftDate }) => {
     var percents=0;   //기본 디폴트 몇 명 찼는지
-    var exactPercents=0;
-    
-percents=(currentNumber/minimumNumber)*100;
-//      
-//</Link>  
+    percents=(currentNumber/minimumNumber)*100;
+
     return(
             
                 <Card style={{height:'100%'}}><Link to={`/itemDetail/${path}/${idx}`} style={{ color: 'black', textDecoration: 'none'}}>

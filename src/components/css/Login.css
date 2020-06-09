@@ -23,15 +23,15 @@
     margin-bottom: 1rem;
 }
 .form-button{
-    background: #09402C;
-    border: 1px solid #ddd;
-    color: #ffffff;
+    background: #d95377;
+    border: 1px solid #d95377;
+    color: #d95377;
     padding: 10px;
     width: 100%;
     text-transform: uppercase;
 }
 .form-button:hover{
-    background: #0F593E;
+    background: #d95377;
 }
 .form-header{
     text-align: center;
@@ -39,4 +39,9 @@
 }
 .form-footer{
     text-align: center;
+}
+.custom-btn{
+    background: #d95377;
+    color: #d95377;
+    text-transform: uppercase;
 }

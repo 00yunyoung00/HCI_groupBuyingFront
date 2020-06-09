@@ -7,8 +7,6 @@ import SubmitForm from './components/SubmitForm';
 import SurveyList from './components/SurveyList';
 import SurveyDetail from './components/SurveyDetail';
 import Login from './components/Login';
-import MenuBar from './components/MenuBar';
-import SideBar from './components/SideBar';
 import Footer from './components/Footer';
 import { Container } from 'reactstrap';
 import BurgerNavbar from './hamburger/BurgerNavbar';
@@ -61,8 +59,8 @@ const App = () => {
   return (
     <div style={mainStyle}>
       <BrowserRouter>
-      
-        <BurgerNavbar/>
+      <p>
+        <BurgerNavbar/></p>
         <Container style={{overflow:'hidden',width:'95%', maxWidth:'100%'}}
         >
           <Row>

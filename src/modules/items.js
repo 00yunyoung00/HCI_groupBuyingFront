@@ -16,7 +16,7 @@ const INITIALIZE='items/INITIALIZE';
 export const initialize=createAction(INITIALIZE);
 
 const exampleItems=[
-    {"idx":"0", "img":`${img1}`, "name":"Glitter Purse: Random Color delivered", "price":"4500", "category":"Accessory", "minimumNumber": "10", "currentNumber":"12", "leftDate": "10"},
+    {"idx":"0", "img":`${img1}`, "name":"Glitter Purse: Random Colors", "price":"4500", "category":"Accessory", "minimumNumber": "10", "currentNumber":"12", "leftDate": "10"},
     {"idx":"1", "img":`${img2}`, "name":"Ewha-Green Baseball Jumper", "price":"45000", "category":"Clothes","minimumNumber": "20", "currentNumber":"10", "leftDate": "6"},
     {"idx":"2", "img":`${img3}`, "name":"Teddy AirPod Case: Brown Color", "price":"6000", "category":"Accessory", "minimumNumber": "10", "currentNumber":"1","leftDate":"30"},
     {"idx":"3", "img":`${img4}`, "name":"1886 Navy Baseball Jumper", "price":"40000","category":"Clothes","minimumNumber": "30", "currentNumber":"6","leftDate":"10"},

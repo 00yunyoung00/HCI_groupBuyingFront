@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from
+import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBView, MDBCarouselItem, MDBMask, MDBContainer } from
 "mdbreact";
 import Mainimg1 from "../image/GlitterPurseMain.png";
 import Mainimg2 from "../image/ParkarMain.png"
