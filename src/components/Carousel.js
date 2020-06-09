@@ -15,7 +15,7 @@ const CarouselPage = () => {
       className="z-depth-1"
     >
       <MDBCarouselInner>
-        <MDBCarouselItem itemId="1">
+        <MDBCarouselItem itemId="1"> <a href="/itemDetail/ongoing/0">
           <MDBView>
             <img
               className="d-block w-100"
@@ -23,9 +23,9 @@ const CarouselPage = () => {
               alt="First slide"
             />
           <MDBMask overlay="black-light" />
-          </MDBView>
+          </MDBView></a>
         </MDBCarouselItem>
-        <MDBCarouselItem itemId="2">
+        <MDBCarouselItem itemId="2"><a href="/itemDetail/ongoing/6">
           <MDBView>
             <img
               className="d-block w-100"
@@ -33,9 +33,9 @@ const CarouselPage = () => {
               alt="Second slide"
             />
           <MDBMask overlay="black-strong" />
-          </MDBView>
+          </MDBView></a>
         </MDBCarouselItem>
-        <MDBCarouselItem itemId="3">
+        <MDBCarouselItem itemId="3"><a href="/itemDetail/ongoing/3">
           <MDBView>
             <img
               className="d-block w-100"
@@ -43,7 +43,7 @@ const CarouselPage = () => {
               alt="Third slide"
             />
           <MDBMask overlay="black-slight" />
-          </MDBView>
+          </MDBView></a>
         </MDBCarouselItem>
       </MDBCarouselInner>
     </MDBCarousel>
