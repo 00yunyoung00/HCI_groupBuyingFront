@@ -4,13 +4,15 @@ import SearchBar from "./SearchBar";
 import Item from "./Item";
 import Paginations from "./Pagination";
 import { Col, Row, Breadcrumb, BreadcrumbItem } from "reactstrap";
-
+import CarouselPage from './CarouselPage.js';
 import "./css/breadcrumble.css"
 
 const ItemList = ({ location }) =>{
     var path=location.pathname;
     path = path.replace("/","");
-
+    const carouselStyle={
+    width:"40vh"
+}
     const items = useSelector(items=>items.items);
 
     var Items=[];
@@ -30,7 +32,7 @@ const ItemList = ({ location }) =>{
     }
 
     return(
-        <div>
+        <div><CarouselPage className={carouselStyle}/>
             <div>
             <Breadcrumb tag="nav" listTag="div">
                 <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
@@ -38,6 +40,7 @@ const ItemList = ({ location }) =>{
             </Breadcrumb>
             </div>
             <SearchBar style={{marginLeft:'auto', marginRight:'auto', marginBottom:'10px'}}/>
+            
             {ItemList}
             <Paginations/>
         </div>
@@ -45,3 +48,4 @@ const ItemList = ({ location }) =>{
 }
 
 export default ItemList;
+

@@ -10,9 +10,9 @@ const Footer = () =>{
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <div className="footer-middle">
          <div className="container" style={{textAlign:'left'}}>
+             <hr/>
             <a href="/"><strong>정보처리방침</strong></a>
             &ensp;&ensp;<a href="/" ><strong>이용약관</strong></a>
-            <hr/>
             <p className="text-xl-left"><strong>Ewha Womans University 82People</strong><br/>(15447) 서울특별시 서대문구 대현동 이화여대길 52 Customer service: 1886-1886</p>
             
              {/*Footer Bottom*/}

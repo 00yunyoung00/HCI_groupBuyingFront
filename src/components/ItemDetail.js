@@ -47,7 +47,7 @@ const ItemDetail = ({ match }) =>{
                 <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
                 <BreadcrumbItem tag="a" href={`/${pastPath}`}>{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
-            </Breadcrumb>
+    </Breadcrumb>
             <Row>
                 <Col me={4}>
                     <img src={item.img} style={{width:'100%', margin:'5%'}}/>

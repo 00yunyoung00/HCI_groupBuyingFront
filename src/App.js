@@ -11,8 +11,10 @@ import MenuBar from './components/MenuBar';
 import SideBar from './components/SideBar';
 import Footer from './components/Footer';
 import { Container } from 'reactstrap';
-import Carousel from './components/Carousel'
+import BurgerNavbar from './hamburger/BurgerNavbar';
+
 function useWindow(){ //리사이즈용
+  
   const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
   useEffect(()=>{
     const handleResize=()=>{
@@ -23,6 +25,16 @@ function useWindow(){ //리사이즈용
   return size;
 }
 const App = () => {
+  const styles = {
+    fontFamily: "sans-serif",
+    textAlign: "center",
+    marginTop: "40px"
+  };
+  const contentStyle = {
+    background: "rgba(255,255,255,0)",
+    width: "80%",
+    border: "none"
+  };
   const sideBarBoxStyle={
       float: 'left',
       marginRight: '50px',
@@ -30,12 +42,16 @@ const App = () => {
   }
 
   const contentBoxStyle={
-    width: '80%',
+    width: '90%',
     margin:'25px',
+    /*
     marginLeft:'auto',
     marginRight:'auto',
-    paddingRight:'10px',
+    paddingRight:'auto',
+    paddingLeft:'auto',
     overflow:'hidden',
+    alignContent:'center',*/
+    margin: '0 auto'
   }
 
   const mainStyle={
@@ -45,14 +61,15 @@ const App = () => {
   return (
     <div style={mainStyle}>
       <BrowserRouter>
-        <MenuBar />
-        <Container style={{overflow:'hidden', marginLeft:'0px', marginRight:'0px', width:'100%', maxWidth:'95%'}}>
+      
+        <BurgerNavbar/>
+        <Container style={{overflow:'hidden',width:'95%', maxWidth:'100%'}}
+        >
           <Row>
-            <Col md={2}>
-          <div style={sideBarBoxStyle}><SideBar/></div></Col>
-          <Col md={10}>
-            <Carousel></Carousel>
-          <div style={contentBoxStyle}>
+            <Col md={2}></Col>
+        <Col md={10}>
+          <div style={{overflow:'hidden',width:'80%', maxWidth:'100%'}}>
+            {/*contentBoxStyle}*/}
             <Route exact path="/" component={ItemList}/>
             <Route exact path="/login" component={Login}/>
             <Route exact path="/demandSurvey" component={ItemList}/>
@@ -63,6 +80,7 @@ const App = () => {
             <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
             <Route exact path="/submitForm/:idx" component={SubmitForm}/>
           </div></Col>
+          
           </Row>
         </Container>
         <Footer />
