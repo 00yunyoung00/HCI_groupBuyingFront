@@ -21,27 +21,19 @@ const SearchBar = ({type}) =>{
                 <Row form>
                     <Col md={6} lg={6}>
                         <InputGroup>
-                     <Input type="search" name="search" id="searchInput" placeholder="검색어를 입력하슈" /></InputGroup>
+                     <Input type="search" name="search" id="searchInput" placeholder="Search" /></InputGroup>
                      </Col>
                      <Col md={2}/>
                      <Col md={2}>
                          <Input type="select" name="firstSelect" id="firstSelect">
-                             <option>1</option>
-                             <option>2</option>
-                             <option>3</option>
-                             <option>4</option>
-                             <option>5</option>
+                             <option>All</option>
+                             <option>Clothes</option>
+                             <option>Accessory</option>
+                             <option>Badges</option>
+                             <option>Stickers</option>
                          </Input>
                      </Col>
-                     <Col md={2}>
-                         <Input type="select" name="secondSelect" id="secondSelect">
-                             <option>1</option>
-                             <option>2</option>
-                             <option>3</option>
-                             <option>4</option>
-                             <option>5</option>
-                         </Input>
-                     </Col>
+                     
                  </Row>
             </Form>
         )

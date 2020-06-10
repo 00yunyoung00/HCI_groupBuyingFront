@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { Breadcrumb, BreadcrumbItem, Row, Col, Container, Form, 
-            FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+            FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback } from "reactstrap";
 
 
 import './css/ItemDetail.css'
@@ -51,64 +51,21 @@ const SubmitForm = ({ history, match }) =>{
             <div>
             <Form>
                 <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                    <Label for="exampleEmail">Phone Number</Label><FormFeedback>Necessary</FormFeedback>
+                    <Input type="email" name="email" id="exampleEmail" placeholder="000-0000-0000" required invalid/>
+                    
                 </FormGroup>
                 <FormGroup>
-                    <Label for="examplePassword">Password</Label>
-                    <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleSelect">Select</Label>
-                    <Input type="select" name="select" id="exampleSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label for="exampleSelectMulti">Select Multiple</Label>
-                    <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    </Input>
+                    <Label for="exampleSelect">Quantity</Label>
+                    <Input type="number" step="1" min={1} max={100} name="select" id="exampleSelect" placeholder="Amount"
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Text Area</Label>
                     <Input type="textarea" name="text" id="exampleText" />
                 </FormGroup>
-                <FormGroup tag="fieldset">
-                    <legend>Radio Buttons</legend>
-                    <FormGroup check>
-                    <Label check>
-                        <Input type="radio" name="radio1" />{' '}
-                        Option one is this and that—be sure to include why it's great
-                    </Label>
-                    </FormGroup>
-                    <FormGroup check>
-                    <Label check>
-                        <Input type="radio" name="radio1" />{' '}
-                        Option two can be something else and selecting it will deselect option one
-                    </Label>
-                    </FormGroup>
-                    <FormGroup check disabled>
-                    <Label check>
-                        <Input type="radio" name="radio1" disabled />{' '}
-                        Option three is disabled
-                    </Label>
-                    </FormGroup>
-                </FormGroup>
-                <FormGroup check>
-                    <Label check>
-                    <Input type="checkbox" />{' '}
-                    Check me out
-                    </Label>
-                </FormGroup>
+                
+                
                 <Button onClick={toggle}>Submit</Button>
                 <Modal isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>Submit Completed!</ModalHeader>

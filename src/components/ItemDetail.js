@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
-import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
+import {  Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import classnames from "classnames";
 
 import ItemInformation from "./ItemInformation";
@@ -34,9 +34,9 @@ const ItemDetail = ({ match }) =>{
     }
 
     if(pastPath==="demandSurvey"){
-        var btn = <Link to={`/submitForm/${idx}`}><Button>submit</Button></Link>
+        var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
     }else if(pastPath==="ongoing"){
-        btn = <Link to={`/submitForm/${idx}`}><Button>submit</Button></Link>
+        btn = <Link to={`/submitForm/${idx}`}><Button>Join</Button></Link>
     }else{
         btn=null
     }
@@ -60,7 +60,7 @@ const ItemDetail = ({ match }) =>{
                         brief information
                     </Container>
                     <Container className="priceInfoBox">
-                        price : {item.price}, {item.currentNumber}
+                        price : {item.price}
                     </Container>
                     <Container className="ButtonBox">
                         {btn}
