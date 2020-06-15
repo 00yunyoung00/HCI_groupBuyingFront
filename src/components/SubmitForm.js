@@ -11,25 +11,39 @@ const SubmitForm = ({ history, match }) =>{
     
       const [modal, setModal] = useState(false);
     
-      const toggle = () => setModal(!modal);
+      const toggle = () => {
+          if(formvalue.phone===""||formvalue.amount===""){
+            alert("입력 똑디 하슈");
+          }else setModal(!modal);
+        }
 
       const idx=match.params.idx;
-      const items=useSelector(items=>items.items.items)
+      const items =useSelector(items=>items.items.items);
+      const pastpath=useSelector(path=>path.path.pastpath);
+
+      var formvalue={phone:"", amount:"", text:null}
 
       var item=null;
+
+
       for(var i=0; i<items.length; i++){
           if(items[i].idx===idx){
               item=items[i];
               break;
           }
       }
+
+      const onChange = e =>{
+        const { value, name } = e.target;
+        formvalue[name]=value;
+      }
       
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
             <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
-            <BreadcrumbItem tag="a" href="/ongoing">ongoing</BreadcrumbItem>
-            <BreadcrumbItem tag="a" href={`/itemDetail/ongoing/${idx}`}>Item</BreadcrumbItem>
+            <BreadcrumbItem tag="a" href={`${pastpath}`}>{pastpath}</BreadcrumbItem>
+            <BreadcrumbItem tag="a" href={`/itemDetail/${pastpath}/${idx}`}>Item</BreadcrumbItem>
             <BreadcrumbItem active tag="span">SubmitForm</BreadcrumbItem>
             </Breadcrumb>
             <Row>
@@ -52,17 +66,16 @@ const SubmitForm = ({ history, match }) =>{
             <Form>
                 <FormGroup>
                     <Label for="exampleEmail">Phone Number</Label><FormFeedback>Necessary</FormFeedback>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="000-0000-0000" required invalid/>
-                    
+                    <Input type="email" name="phone" id="exampleEmail" placeholder="000-0000-0000" onChange={onChange} required invalid/>
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleSelect">Quantity</Label>
-                    <Input type="number" step="1" min={1} max={100} name="select" id="exampleSelect" placeholder="Amount"
+                    <Input type="number" step="1" min={1} max={100} name="amount" id="exampleSelect" placeholder="Amount" onChange={onChange}
                     />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Text Area</Label>
-                    <Input type="textarea" name="text" id="exampleText" />
+                    <Input type="textarea" name="text" id="exampleText" onChange={onChange}/>
                 </FormGroup>
                 
                 
@@ -73,7 +86,7 @@ const SubmitForm = ({ history, match }) =>{
                         submit completed!!! :-)
                     </ModalBody>
                     <ModalFooter>
-                    <Button color="primary" onClick={()=>{history.push('/ongoing')}}>OK</Button>{' '}
+                    <Button color="primary" onClick={()=>{history.push(`/itemDetail/${pastpath}/${idx}`)}}>OK</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </Form>

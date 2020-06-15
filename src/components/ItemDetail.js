@@ -1,8 +1,10 @@
-import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
 import {  Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import classnames from "classnames";
+
+import { changePath } from '../modules/path'
 
 import ItemInformation from "./ItemInformation";
 import Notices from "./Notice";
@@ -12,6 +14,9 @@ import QnAs from "./QnAs";
 import './css/ItemDetail.css'
 
 const ItemDetail = ({ match }) =>{
+
+    const dispatch=useDispatch();
+    
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
@@ -24,6 +29,11 @@ const ItemDetail = ({ match }) =>{
     }
 
     const items=useSelector(items=>items.items.items);
+
+    useEffect(()=>{
+        dispatch(changePath(pastPath));
+    }, [dispatch, pastPath]);
+
 
     var item=null;
     for(var i=0; i<items.length; i++){

@@ -18,13 +18,12 @@ const ItemList = ({ location }) =>{
     var Items=[];
     const ItemList=[];
 
-    console.log(path)
     var k=0;
     if(!path){
         for(var i=0; i<4; i++){
             for(var j=0; j<4; j++){
                 const temp=items.items[k];
-                Items.push(<Col><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                Items.push(<Col><Item idx={temp.idx} path={`Spring Collections ${i+1}`} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
                 k++;
                 if(k>=9) k=0;
             }
