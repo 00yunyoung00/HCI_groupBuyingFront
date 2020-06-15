@@ -29,7 +29,7 @@ render() {
             <MDBNavbarBrand> <Link to="/login" style={{ color: 'black', textDecoration: 'none'}}>
               <BsPersonFill size="24" color="gray"/>Login</Link>
             </MDBNavbarBrand>
-            <MDBNavbarBrand> <Link to="/ongoing" style={{ color: 'black', textDecoration: 'none'}}>
+            <MDBNavbarBrand> <Link to="/" style={{ color: 'black', textDecoration: 'none'}}>
               <strong>82 People</strong></Link>
             </MDBNavbarBrand>
             <MDBHamburgerToggler color="#d3531a" id="hamburger1" onClick={()=> this.toggleSingleCollapse('collapse1')} />
