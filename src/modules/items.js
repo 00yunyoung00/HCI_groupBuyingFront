@@ -12,8 +12,10 @@ import img9 from "../image/9_MTM1.jpg";
 
 
 const INITIALIZE='items/INITIALIZE';
+const CHANGE_ITEMS='items/CHANGE_ITEMS';
 
 export const initialize=createAction(INITIALIZE);
+export const changeItems = createAction(CHANGE_ITEMS, items=>items);
 
 const exampleItems=[
     {"idx":"0", "img":`${img1}`, "name":"Glitter Purse: Random Colors", "price":"4500", "category":"Accessory", "minimumNumber": "10", "currentNumber":"12", "leftDate": "10"},
@@ -34,6 +36,11 @@ const initialState={
 const items=handleActions(
     {
         [INITIALIZE]:state=>initialState,
+        [CHANGE_ITEMS]:(state, { payload:items })=>({
+            ...state,
+            items:items,
+        })
+
     },
     initialState,
 )

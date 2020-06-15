@@ -1,20 +1,34 @@
 import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { Breadcrumb, BreadcrumbItem, Row, Col, Container, Form, 
             FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback } from "reactstrap";
-
+        
+import { changeItems } from '../modules/items'
 
 import './css/ItemDetail.css'
 
 
 const SubmitForm = ({ history, match }) =>{
+
+    const dispatch=useDispatch();
     
       const [modal, setModal] = useState(false);
     
       const toggle = () => {
           if(formvalue.phone===""||formvalue.amount===""){
             alert("입력 똑디 하슈");
-          }else setModal(!modal);
+          }else {
+            if(pastpath==="demandSurvey"){
+                for(var i=0; i<items.length; i++){
+                    if(items[i].idx===idx){
+                        items[i].currentNumber++;
+                        console.log(items[i].currentNumber);
+                        break;
+                    }
+                }                
+            }
+              setModal(!modal);
+            }
         }
 
       const idx=match.params.idx;
@@ -37,7 +51,12 @@ const SubmitForm = ({ history, match }) =>{
         const { value, name } = e.target;
         formvalue[name]=value;
       }
-      
+
+      const onSubmit = () => {
+        if(dispatch) dispatch(changeItems(items));
+        history.push(`/itemDetail/${pastpath}/${idx}`)
+      }
+
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
@@ -86,7 +105,7 @@ const SubmitForm = ({ history, match }) =>{
                         submit completed!!! :-)
                     </ModalBody>
                     <ModalFooter>
-                    <Button color="primary" onClick={()=>{history.push(`/itemDetail/${pastpath}/${idx}`)}}>OK</Button>{' '}
+                    <Button color="primary" onClick={onSubmit}>OK</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </Form>

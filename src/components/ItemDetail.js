@@ -44,7 +44,7 @@ const ItemDetail = ({ match }) =>{
     }
 
     if(pastPath==="demandSurvey"){
-        var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
+        var btn = <div><Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>  current:{item.currentNumber}/minimum:{item.minimumNumber}</div>
     }else if(pastPath==="ongoing"){
         btn = <Link to={`/submitForm/${idx}`}><Button>Join</Button></Link>
     }else{
