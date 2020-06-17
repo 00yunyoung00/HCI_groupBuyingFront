@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Route, BrowserRouter } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import ItemList from './components/ItemList';
+import ItemListContainer from './container/itemListContainer';
 import ItemDetail from './components/ItemDetail';
 import SubmitForm from './components/SubmitForm';
 import SurveyList from './components/SurveyList';
@@ -68,13 +69,13 @@ const App = () => {
         <Col md={10}>
           <div style={{overflow:'hidden',width:'80%', maxWidth:'100%'}}>
             {/*contentBoxStyle}*/}
-            <Route exact path="/" component={ItemList}/>
+            <Route exact path="/" component={ItemListContainer}/>
             <Route exact path="/login" component={Login}/>
-            <Route exact path="/demandSurvey" component={ItemList}/>
+            <Route exact path="/demandSurvey" component={ItemListContainer}/>
             <Route exact path="/surveyDetail" component={SurveyDetail}/>
-            <Route exact path="/ongoing" component={ItemList}/>
-            <Route exact path="/manufacturing" component={ItemList}/>
-            <Route exact path="/finished" component={ItemList}/>
+            <Route exact path="/ongoing" component={ItemListContainer}/>
+            <Route exact path="/manufacturing" component={ItemListContainer}/>
+            <Route exact path="/finished" component={ItemListContainer}/>
             <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
             <Route exact path="/submitForm/:idx" component={SubmitForm}/>
           </div></Col>
