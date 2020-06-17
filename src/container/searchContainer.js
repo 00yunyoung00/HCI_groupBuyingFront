@@ -12,10 +12,7 @@ const SearchContainer = ({ type }) => {
         category:search.category,
     }));
 
-    console.log(type)
-
     useEffect(()=>{
-        console.log("in initialize")
         dispatch(initialize());
     }, [dispatch]);
 

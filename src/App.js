@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Footer from './components/Footer';
 import { Container } from 'reactstrap';
 import BurgerNavbar from './hamburger/BurgerNavbar';
+import UserContainer from './container/userContainer'
 
 function useWindow(){ //리사이즈용
   
@@ -61,7 +62,7 @@ const App = () => {
     <div style={mainStyle}>
       <BrowserRouter>
       <p>
-        <BurgerNavbar/></p>
+        <UserContainer/></p>
         <Container style={{overflow:'hidden',width:'95%', maxWidth:'100%'}}
         >
           <Row>
