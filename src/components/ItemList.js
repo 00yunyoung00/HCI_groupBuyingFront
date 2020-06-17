@@ -95,6 +95,11 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
             }
         }
     }
+    if(items.length===0){
+        ItemList.push(<div><Row style={{minHeight:'20%', margin:'5%', height:'40%'}}>Sorry, No Item</Row>
+                            <Row style={{minHeight:'20%', margin:'5%', height:'40%'}}>Please search again</Row>
+                            <Row style={{minHeight:'20%', margin:'5%', height:'40%'}}></Row></div>)
+    }
     
     const presentPage = searchWord || isCategory
 

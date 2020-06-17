@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import { Container } from 'reactstrap';
 import BurgerNavbar from './hamburger/BurgerNavbar';
 import UserContainer from './container/userContainer'
+import MyList from './components/MyList';
 
 function useWindow(){ //리사이즈용
   
@@ -79,6 +80,7 @@ const App = () => {
             <Route exact path="/finished" component={ItemListContainer}/>
             <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
             <Route exact path="/submitForm/:idx" component={SubmitForm}/>
+            <Route exact path="/myGBList" component={MyList}/>
           </div></Col>
           
           </Row>
