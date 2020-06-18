@@ -41,7 +41,7 @@ const NavbarPage = ({ user, onLogout }) =>{
                   <Link to="/myGBList" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Project</Link>
                 </MDBNavItem> </p>
                 <p> <MDBNavItem>
-                  <Link to="/newProject" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Group Buying</Link>
+                  <Link to="/newGB" style={{color: 'gray', textDecoration: 'none'}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Group Buying</Link>
                 </MDBNavItem> </p>
               </MDBNavbarNav>
            </MDBCollapse>

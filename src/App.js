@@ -13,6 +13,7 @@ import { Container } from 'reactstrap';
 import BurgerNavbar from './hamburger/BurgerNavbar';
 import UserContainer from './container/userContainer'
 import MyList from './components/MyList';
+import AddNewGB from './components/AddNewGB';
 
 function useWindow(){ //리사이즈용
   
@@ -81,6 +82,7 @@ const App = () => {
             <Route exact path="/itemDetail/:path/:idx" component={ItemDetail}/>
             <Route exact path="/submitForm/:idx" component={SubmitForm}/>
             <Route exact path="/myGBList" component={MyList}/>
+            <Route exact path="/newGB" component={AddNewGB}/>
           </div></Col>
           
           </Row>
