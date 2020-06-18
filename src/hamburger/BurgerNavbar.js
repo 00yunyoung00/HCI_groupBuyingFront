@@ -18,14 +18,14 @@ const NavbarPage = ({ user, onLogout }) =>{
       <MDBNavbar color="amber lighten-4" style={{ marginTop: '20px' }} light>
         <MDBContainer>
           {
-            !user? (<MDBNavbarBrand> <Link to="/login" style={{ color: 'black', textDecoration: 'none'}}>{}
+            !user? (<MDBNavbarBrand style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> <Link to="/login" style={{ color: 'black', textDecoration: 'none'}}>{}
                       <BsPersonFill size="24" color="gray"/>Login</Link>
                     </MDBNavbarBrand>) : 
-                    (<MDBNavbarBrand onClick={onLogout}> <Link to="/" style={{ color: 'black', textDecoration: 'none'}}>{}
+                    (<MDBNavbarBrand onClick={onLogout} style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> <Link to="/" style={{ color: 'black', textDecoration: 'none'}}>{}
                       <BsPersonFill size="24" color="gray"/>Logout</Link>
                     </MDBNavbarBrand>)
           }
-          <MDBNavbarBrand> <Link to="/" style={{ color: 'black', textDecoration: 'none'}}>
+          <MDBNavbarBrand> <Link to="/" style={{ color: 'black', textDecoration: 'none', fontSize:'2.5rem', textAlign:'center'}}>
             <strong>82 People</strong></Link>
           </MDBNavbarBrand>
           <MDBHamburgerToggler color="#d3531a" id="hamburger1" onClick={toggle} />
