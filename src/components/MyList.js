@@ -6,10 +6,18 @@ import { Col, Row, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import CarouselPage from './CarouselPage.js';
 import "./css/breadcrumble.css"
 import {FaChevronRight} from "react-icons/fa";
-
-import SearchBar from "../container/searchContainer";
+import { Redirect } from "react-router-dom";
 
 const MyList = ({ location }) =>{
+
+    const { items, user } = useSelector(({ items, user })=>({
+        items:items.items,
+        user:user.user
+    }));
+
+    if(user===''){
+        return <Redirect to='/login'/>
+    }
 
     var path=location.pathname;
     path = path.replace("/","");
@@ -18,9 +26,7 @@ const MyList = ({ location }) =>{
     width:"40vh"
     }
 
-    const { items } = useSelector(({ items })=>({
-        items:items.items,
-    }));  
+      
 
     if(!items) return null;
 

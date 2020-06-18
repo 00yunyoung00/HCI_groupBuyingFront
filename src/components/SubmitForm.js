@@ -6,6 +6,7 @@ import { Breadcrumb, BreadcrumbItem, Row, Col, Container, Form,
 import { changeItems } from '../modules/items'
 
 import './css/ItemDetail.css'
+import { Redirect } from "react-router-dom";
 
 
 const SubmitForm = ({ history, match }) =>{
@@ -34,6 +35,11 @@ const SubmitForm = ({ history, match }) =>{
       const idx=match.params.idx;
       const items =useSelector(items=>items.items.items);
       const pastpath=useSelector(path=>path.path.pastpath);
+      const user = useSelector(user=>user.user.user);
+
+      if(user===''){
+          return <Redirect to='/login'/>
+      }
 
       var formvalue={phone:"", amount:"", text:null}
 
