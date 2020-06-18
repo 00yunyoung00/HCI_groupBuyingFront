@@ -51,7 +51,7 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
         for(var i=0; i<4; i++){
             for(var j=0; j<4; j++){
                const temp=items[k];
-                Items.push(<Col style={{width:'20%'}}><Item idx={temp.idx} path={`Spring Collections ${i+1}`} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                Items.push(<Col style={{width:'20%'}}><Item idx={temp.idx} path={'ongoing'} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
                 k++;
                 if(k>=9) k=0;
             }
