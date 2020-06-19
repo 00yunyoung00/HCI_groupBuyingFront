@@ -20,38 +20,32 @@ const AddNewGB = () => {
             
             <Form>
                 <FormGroup row>
-                    <Label for="exampleEmail" sm={2}>Email</Label>
+                    <Label for="exampleEmail" sm={2}>Item name</Label>
                     <Col sm={10}>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                    <Input type="text" name="email" id="exampleEmail" placeholder="name here" />
                     </Col>
                 </FormGroup>
                 <FormGroup row>
-                    <Label for="examplePassword" sm={2}>Password</Label>
+                    <Label for="examplePassword" sm={2}>Price</Label>
                     <Col sm={10}>
-                    <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                    <Input type="password" name="password" id="examplePassword" placeholder="price here" />
                     </Col>
                 </FormGroup>
                 <FormGroup row>
-                    <Label for="exampleSelect" sm={2}>Select</Label>
+                    <Label for="examplePassword" sm={2}>Due Date</Label>
+                    <Col sm={10}>
+                    <Input type="date" name="duedate" id="examplePassword" />
+                    </Col>
+                </FormGroup>
+                <FormGroup row>
+                    <Label for="exampleSelect" sm={2}>Category</Label>
                     <Col sm={10}>
                     <Input type="select" name="select" id="exampleSelect">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Input>
-                    </Col>
-                </FormGroup>
-                <FormGroup row>
-                    <Label for="exampleSelectMulti" sm={2}>Select Multiple</Label>
-                    <Col sm={10}>
-                    <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option>Clothes</option>
+                        <option>Accessory</option>
+                        <option>Badge</option>
+                        <option>Sticker</option>
+                        <option>etc</option>
                     </Input>
                     </Col>
                 </FormGroup>
@@ -72,35 +66,28 @@ const AddNewGB = () => {
                     </Col>
                 </FormGroup>
                 <FormGroup tag="fieldset" row>
-                    <legend className="col-form-label col-sm-2">Radio Buttons</legend>
+                    <legend className="col-form-label col-sm-2">Type</legend>
                     <Col sm={10}>
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" name="radio2" />{' '}
-                        Option one is this and that—be sure to include why it's great
+                        demand survey
                         </Label>
                     </FormGroup>
                     <FormGroup check>
                         <Label check>
                         <Input type="radio" name="radio2" />{' '}
-                        Option two can be something else and selecting it will deselect option one
-                        </Label>
-                    </FormGroup>
-                    <FormGroup check disabled>
-                        <Label check>
-                        <Input type="radio" name="radio2" disabled />{' '}
-                        Option three is disabled
+                        ongoing
                         </Label>
                     </FormGroup>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
-                    <Label for="checkbox2" sm={2}>Checkbox</Label>
                     <Col sm={{ size: 10 }}>
                     <FormGroup check>
                         <Label check>
                         <Input type="checkbox" id="checkbox2" />{' '}
-                        Check me out
+                        Are you sure?
                         </Label>
                     </FormGroup>
                     </Col>
