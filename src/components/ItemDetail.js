@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import classnames from "classnames";
-
 import {Line} from 'rc-progress';
-
-
-import { changePath } from '../modules/path'
-
 import ItemInformation from "./ItemInformation";
 import Notices from "./Notice";
 import Editor from "./Editor";
@@ -17,9 +12,6 @@ import QnAs from "./QnAs";
 import './css/ItemDetail.css'
 
 const ItemDetail = ({ match }) =>{
-
-    const dispatch=useDispatch();
-    
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
@@ -33,11 +25,6 @@ const ItemDetail = ({ match }) =>{
 
     const items=useSelector(items=>items.items.items);
 
-    useEffect(()=>{
-        dispatch(changePath(pastPath));
-    }, [dispatch, pastPath]);
-
-
     var item=null;
     for(var i=0; i<items.length; i++){
         if(items[i].idx===idx){
@@ -48,7 +35,7 @@ const ItemDetail = ({ match }) =>{
     var percents=0;   //기본 디폴트 몇 명 찼는지
     percents=(item.currentNumber/item.minimumNumber)*100;
     if(pastPath==="demandSurvey"){
-        var btn = <div><Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>  current:{item.currentNumber}/minimum:{item.minimumNumber}</div>
+        var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
     }else if(pastPath==="ongoing"){
         btn = <Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55'}} block>Join</Button></Link>
         
