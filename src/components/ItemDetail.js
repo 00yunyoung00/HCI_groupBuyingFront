@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
-import {  Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
+import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import classnames from "classnames";
-
+import {Line} from 'rc-progress';
 import ItemInformation from "./ItemInformation";
 import Notices from "./Notice";
 import Editor from "./Editor";
@@ -15,7 +15,7 @@ const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
-
+    
     
     const [activeTab, setActiveTab] = useState('1');
 
@@ -32,11 +32,14 @@ const ItemDetail = ({ match }) =>{
             break;
         }
     }
-
+    var percents=0;   //기본 디폴트 몇 명 찼는지
+    percents=(item.currentNumber/item.minimumNumber)*100;
     if(pastPath==="demandSurvey"){
         var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
     }else if(pastPath==="ongoing"){
-        btn = <Link to={`/submitForm/${idx}`}><Button>Join</Button></Link>
+        btn = <Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55'}} block>Join</Button></Link>
+        
+    
     }else{
         btn=null
     }
@@ -53,14 +56,29 @@ const ItemDetail = ({ match }) =>{
                     <img src={item.img} style={{width:'100%', margin:'5%'}}/>
                 </Col>
                 <Col md={8}>
+
                     <Container className="itemNameBox">
                         {item.name}
+                </Container>
+                <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
+                
+                    <span style={{fontSize: '3rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span>
+                   <br/>
+                   <span style={{fontSize: '3rem', color: '#404040', fontWeight: 'bold'}}>{item.price}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; Korean won</span>
+                   
                     </Container>
                     <Container className="briefInfoBox">
-                        brief information
-                    </Container>
-                    <Container className="priceInfoBox">
-                        price : {item.price}
+                        This is simple item design. But,  4th OFFICIAL BASEBALL JUMPER RARE [EWHA SELLER].
+
+MINT CONDITION NEVER WORN
+
+ORIGINAL TAG
+
+TAKEN OUT OF BAG FOR PHOTOS ONLY
+
+One size fits like a unisex Medium <p/>
                     </Container>
                     <Container className="ButtonBox">
                         {btn}
