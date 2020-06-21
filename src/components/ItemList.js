@@ -25,6 +25,7 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
     const carouselStyle={
     width:"40vh"
     }
+    var currentSize=''
     //var items = useSelector(items=>items.items);
     //items=JSON.parse(items);
     //const searchword = useSelector(search=>search.search.searchWord);
@@ -111,16 +112,22 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
         }
     }
     
-
+    
     else{
         if(searchWord || isCategory){
+            var itemRow=4;
+            var itemCol=0;
+            if(width<=600) {itemRow=1; currentSize='100%'}
+                else if(width<=800) {itemRow=2; currentSize='50%'}
+                else if(width<=1100) {itemRow=3; currentSize='33%'}
+                else {itemRow=4; currentSize='25%'}
             if(items.length>=4){ //아이템이 4개 이상일 때, width에 따라 정렬 몇 개 할지 정한다.
                 
-                for(var i=0; i<items.length/4; i++){
-                    for(var j=0; j<4; j++){
+                for(var i=0; i<items.length/itemRow; i++){
+                    for(var j=0; j<itemRow; j++){
                         const temp=items[k];
                         console.log(temp)
-                        Items.push(<Col style={{maxWidth:'25%'}}><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                        Items.push(<Col style={{maxWidth:currentSize}}><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price+100} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
                         k++;
                         if(k===items.length) break;
                     }
@@ -129,12 +136,16 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
                 }
             }
             else{ //아이템이 4개 미만일 때..
-                for(var j=0; j<items.length; j++){
-                    const temp=items[j];
-                    Items.push(<Col style={{maxWidth:'25%'}}><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                for(var i=0; i<items.length/itemRow; i++){
+                for(var j=0; j<itemRow; j++){
+                    const temp=items[itemCol];
+                    Items.push(<Col style={{maxWidth:currentSize}}><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                    itemCol++; if(itemCol===items.length) break;
                 }
                 ItemList.push(<div><Row style={{margin:'10px'}}>{Items}</Row></div>)
+                Items=[];
             }
+        }
         }
         else{
             for(var i=0; i<4; i++){
@@ -150,7 +161,7 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
         }
     }
     if(items.length===0){
-        ItemList.push(<div><Row style={{minHeight:'20%', margin:'5%', height:'40%'}}>Sorry, No Item{width}</Row>
+        ItemList.push(<div><Row style={{minHeight:'20%', margin:'5%', height:'40%'}}>Sorry, No Item</Row>
                             <Row style={{minHeight:'20%', margin:'5%', height:'40%'}}>Please search again</Row>
                             <Row style={{minHeight:'20%', margin:'5%', height:'40%'}}></Row></div>)
     }
