@@ -4,6 +4,8 @@ MDBHamburgerToggler } from 'mdbreact';
 import {Link, BrowserRouter as Router } from 'react-router-dom';
 import {BsPersonFill} from "react-icons/bs";
 import logo from "../image/82PeopleLogo.png"
+import AlarmNoficationCart  from "./AlarmNoficationCart.js";
+
 const NavbarPage = ({ user, onLogout }) =>{
 
   const [collapse1, setCollapseOpen] = useState(false);
@@ -18,12 +20,14 @@ const NavbarPage = ({ user, onLogout }) =>{
       <MDBNavbar color="amber lighten-4" style={{ marginTop: '20px' }} light>
         <MDBContainer>
           {
-            !user? (<MDBNavbarBrand style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> <Link to="/login" style={{ color: 'black', textDecoration: 'none'}}>{}
-                      <BsPersonFill size="24" color="gray"/>Login</Link>
+            !user? (<MDBNavbarBrand style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> <Link to="/login" style={{ color: 'black', textDecoration: 'none', fontSize: '15px'}}>{}
+                      <BsPersonFill size="24" color="gray"/>&nbsp;Login</Link>
                     </MDBNavbarBrand>) : 
-                    (<MDBNavbarBrand onClick={onLogout} style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> <Link to="/" style={{ color: 'black', textDecoration: 'none'}}>{}
-                      <BsPersonFill size="24" color="gray"/>Logout</Link>
-                    </MDBNavbarBrand>)
+                    (<div><AlarmNoficationCart/><MDBNavbarBrand onClick={onLogout} style={{maxWidth:'8%', width:'10%', minWidth:'10%'}}> 
+                    &nbsp;
+                    <Link to="/" style={{ color: 'black', textDecoration: 'none', fontSize: '15px'}}>{}
+                      Logout</Link>
+                    </MDBNavbarBrand></div>)
           }
           <MDBNavbarBrand> <Link to="/" style={{ color: 'black', textDecoration: 'none', fontSize:'2.5rem', textAlign:'center'}}>
             {/*<strong>82 People</strong>*/}

@@ -15,7 +15,7 @@ import UserContainer from './container/userContainer'
 import MyList from './components/MyList';
 import AddNewGB from './components/AddNewGB';
 import ReactNotification from "react-notifications-component"
-function useWindow(){ //리사이즈용
+/*function useWindowSize(){ //리사이즈용
   
   const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
   useEffect(()=>{
@@ -24,9 +24,11 @@ function useWindow(){ //리사이즈용
     };
   window.addEventListener("resize", handleResize);
   },[]);
+  console.log(size);
   return size;
-}
+}*/
 const App = () => {
+ // const [height, width]=useWindowSize();
   const styles = {
     fontFamily: "sans-serif",
     textAlign: "center",

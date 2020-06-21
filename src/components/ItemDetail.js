@@ -37,7 +37,7 @@ const ItemDetail = ({ match }) =>{
     var percents=0;   //기본 디폴트 몇 명 찼는지
     percents=(item.currentNumber/item.minimumNumber)*100;
     if(pastPath==="demandSurvey"){
-        var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
+        var btn = <Link to={`/submitForm/${idx}`}><Button color="info" block>Answer to Survey</Button></Link>
     }else if(pastPath==="ongoing"){
         btn = <Row xs="2">
             <Col xs="8">

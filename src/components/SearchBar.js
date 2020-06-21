@@ -16,7 +16,7 @@ const SearchBar = ({type, onChange, onDropChange}) =>{
             <Form style={{padding:'5px', margin:'10px'}}>
                 <Row>
                 <Col md={6} style={{float:'left'}}>
-                    <Input type="search" name="search" id="searchInput" placeholder="검색어를 입력하슈" onChange={onChange}/>
+                    <Input type="search" name="search" id="searchInput" placeholder="Search" onChange={onChange}/>
                 </Col>
                 </Row>
             </Form>
@@ -25,16 +25,11 @@ const SearchBar = ({type, onChange, onDropChange}) =>{
 
     else{
         return(
-            <Form style={{padding:'5px'}}>
-                <Row form>
-                    <Col md={6} lg={6}>
-                        <InputGroup>
-                     <Input type="search" name="search" id="searchInput" placeholder="Search" onChange={onChange}/></InputGroup>
-                     </Col>
-                     <Col md={2}/>
-                     <Col md={2}>
-                        <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle}>
-                        <DropdownToggle caret >option</DropdownToggle>
+            
+                <Row xs="2" style={{marginLeft: '10px', marginRight: '10px'}}>
+                     <Col xs="6">
+                        <Dropdown direction="down" isOpen={dropdownOpen} toggle={toggle} >
+                        <DropdownToggle caret >Category</DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem name="All" onClick={onDropChange}>All</DropdownItem>
                                 <DropdownItem name="Clothes" onClick={onDropChange}>Clothes</DropdownItem>
@@ -44,9 +39,16 @@ const SearchBar = ({type, onChange, onDropChange}) =>{
                             </DropdownMenu>
                         </Dropdown>
                      </Col>
+                     <Col xs="6" style={{marginLeft: '0'}}>
+                        <InputGroup>
+                     <Input type="search" name="search" id="searchInput" placeholder="Search" onChange={onChange}/></InputGroup>
+                     </Col>
+                     
+                    
                      
                  </Row>
-            </Form>
+            
+          
         )
     }
    

@@ -18,10 +18,9 @@ const Login = ({ history }) =>{
     }
 
     return(
-    <div className="wrap">
+    <div>
         <form className="login-form">
-        <Button color="primary" size="lg" block style={{fontSize: '1rem'}}><GrFacebookOption color="white" size="24"/> Login with Facebook</Button>
-            <br/><div className="form-group">
+        <div className="form-group">
                 <input type="text" className="form-input" id="id" placeholder="email@example.com" />
             </div>
             <div className="form-group">
@@ -30,9 +29,7 @@ const Login = ({ history }) =>{
             <div className="form-group">
                 <Button size="lg" classname="custom-btn" block  type="submit" onClick={onSignIn}>Login</Button>
             </div>
-            <div className="form-footer">
-            Don't have an account? <Link to='/'>Sign Up</Link>
-            </div>
+            
         </form>
     </div>
 
