@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import classnames from "classnames";
@@ -13,10 +13,16 @@ import "animate.css-react"
 import "react-notifications-component/dist/theme.css";
 import './css/ItemDetail.css'
 import Notif from "./Notification";
+import { changePath } from "../modules/path";
 const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
+
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(changePath(pastPath));
+    }, [dispatch, pastPath])
     
     
     const [activeTab, setActiveTab] = useState('1');

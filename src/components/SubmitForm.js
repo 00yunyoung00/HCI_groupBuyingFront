@@ -37,6 +37,7 @@ const SubmitForm = ({ history, match }) =>{
       const pastpath=useSelector(path=>path.path.pastpath);
       const user = useSelector(user=>user.user.user);
 
+      console.log(pastpath)
       if(user===''){
           return <Redirect to='/login'/>
       }
