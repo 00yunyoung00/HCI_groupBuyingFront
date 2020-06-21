@@ -57,7 +57,8 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
     const isCategory = searchCategory && !(searchCategory==="All")
     console.log(path)
     var k=0;
-    if(!path && width<=600){
+    if(!path){
+        if(width<=600){
         for(var i=0; i<4; i++){
             for(var j=0; j<1; j++){
                const temp=items[k];
@@ -68,10 +69,9 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
             ItemList.push(<div><h4 style={{margin: '30px'}}>Spring Collections {i+1} <FaChevronRight color="gray"/></h4>
             <Row style={{margin:'10px'}}>{Items}</Row></div>)
             Items=[];
-        }
-    }
-    else if(!path && width<=800){
-        for(var i=0; i<4; i++){
+        }}
+        else if(width<=800){
+             for(var i=0; i<4; i++){
             for(var j=0; j<2; j++){
                const temp=items[k];
                 Items.push(<Col style={{width:'20%'}}><Item idx={temp.idx} path={'ongoing'} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
@@ -82,9 +82,9 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
             <Row style={{margin:'10px'}}>{Items}</Row></div>)
             Items=[];
     }
-}
-else if(!path && width<=1100){
-    for(var i=0; i<4; i++){
+        }
+        else if(width<=1100){
+             for(var i=0; i<4; i++){
         for(var j=0; j<3; j++){
            const temp=items[k];
             Items.push(<Col style={{width:'20%'}}><Item idx={temp.idx} path={'ongoing'} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
@@ -94,11 +94,28 @@ else if(!path && width<=1100){
         ItemList.push(<div><h4 style={{margin: '30px'}}>Spring Collections {i+1} <FaChevronRight color="gray"/></h4>
         <Row style={{margin:'10px'}}>{Items}</Row></div>)
         Items=[];
-}
-}
+        }
+        }
+        else{
+            for(var i=0; i<4; i++){
+                for(var j=0; j<4; j++){
+                   const temp=items[k];
+                    Items.push(<Col style={{width:'20%'}}><Item idx={temp.idx} path={'ongoing'} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
+                    k++;
+                    if(k>=9) k=0;
+                }
+                ItemList.push(<div><h4 style={{margin: '30px'}}>Spring Collections {i+1} <FaChevronRight color="gray"/></h4>
+                <Row style={{margin:'10px'}}>{Items}</Row></div>)
+                Items=[];
+                }
+        }
+    }
+    
+
     else{
         if(searchWord || isCategory){
-            if(items.length>=4){
+            if(items.length>=4){ //아이템이 4개 이상일 때, width에 따라 정렬 몇 개 할지 정한다.
+                
                 for(var i=0; i<items.length/4; i++){
                     for(var j=0; j<4; j++){
                         const temp=items[k];
@@ -110,7 +127,8 @@ else if(!path && width<=1100){
                     ItemList.push(<div><Row style={{margin:'10px'}}>{Items}</Row></div>)
                     Items=[];
                 }
-            }else{
+            }
+            else{ //아이템이 4개 미만일 때..
                 for(var j=0; j<items.length; j++){
                     const temp=items[j];
                     Items.push(<Col style={{maxWidth:'25%'}}><Item idx={temp.idx} path={path} img={temp.img} name={temp.name} price={temp.price} minimumNumber={temp.minimumNumber} currentNumber={temp.currentNumber} leftDate={temp.leftDate}/></Col>)
