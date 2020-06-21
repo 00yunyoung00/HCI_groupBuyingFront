@@ -13,7 +13,7 @@ const ItemInformation = ({ img }) => {
     return(
         <div>
             <p />
-            <h2>Item Detail Information!</h2>
+            <h2 style={{textAlign: 'center'}}><br/>Item Detail Information</h2>
             <Media object src={img} alt="image1" style={imageStyle}/>
             <Media object src={img} alt="image2" style={imageStyle} />
         </div>

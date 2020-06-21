@@ -39,9 +39,11 @@ const ItemDetail = ({ match }) =>{
     if(pastPath==="demandSurvey"){
         var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
     }else if(pastPath==="ongoing"){
-        btn = <Row xs="2"><Col xs="9"><Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55', textDecorationColor: 'none'}} block>Join</Button></Link>
-                </Col>
-                <Col xs="3"><Notif/></Col>
+        btn = <Row xs="2">
+            <Col xs="8">
+            <Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55', textDecorationColor: 'none', marginLeft: '0', marginRight: '0'}} block>Join</Button></Link>
+              </Col>
+             <Col xs="4">   <Notif/> </Col>
         </Row>
     
     }else{
@@ -54,17 +56,19 @@ const ItemDetail = ({ match }) =>{
                 <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
                 <BreadcrumbItem tag="a" href={`/${pastPath}`}>{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
-    </Breadcrumb> <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}<br/></Col>
+    </Breadcrumb> <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}</Col>
             
             <Row>
                
-                <Col me={4}>
+                <Col md={6}>
                     <img src={item.img} style={{width:'100%', margin:'5%'}}/>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
+<br/>
 
+<br/>
                 <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
-      
+                    
                     <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
                     <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span>
                     </Container>
@@ -87,8 +91,11 @@ ORIGINAL TAG
 
 TAKEN OUT OF BAG FOR PHOTOS ONLY
 
-One size fits like a unisex Medium <p/>
+One size fits like a unisex Medium <p/><p/>
                     </Container>
+                    <br/>
+                    <br/>
+                    
                     <Container className="ButtonBox">
                         {btn}
                     </Container>

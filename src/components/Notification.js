@@ -22,8 +22,8 @@ function Notif(){
     }
     return (
         <div>
-        <ButtonToggle style={{backgroundColor: '#fcfcfc', borderColor: '#666666', color: 'black'}} onClick={handleOnClickDefault}>
-            Reminder
+        <ButtonToggle style={{backgroundColor: '#fcfcfc', borderColor: '#666666', color: 'black'}}  onClick={handleOnClickDefault} block>
+            Remind
         </ButtonToggle>
         </div>
     )

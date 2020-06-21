@@ -3,7 +3,7 @@ import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBCol
 MDBHamburgerToggler } from 'mdbreact';
 import {Link, BrowserRouter as Router } from 'react-router-dom';
 import {BsPersonFill} from "react-icons/bs";
-
+import logo from "../image/82PeopleLogo.png"
 const NavbarPage = ({ user, onLogout }) =>{
 
   const [collapse1, setCollapseOpen] = useState(false);
@@ -26,7 +26,9 @@ const NavbarPage = ({ user, onLogout }) =>{
                     </MDBNavbarBrand>)
           }
           <MDBNavbarBrand> <Link to="/" style={{ color: 'black', textDecoration: 'none', fontSize:'2.5rem', textAlign:'center'}}>
-            <strong>82 People</strong></Link>
+            {/*<strong>82 People</strong>*/}
+            <img src={logo} width="180px"/>
+            </Link>
           </MDBNavbarBrand>
           <MDBHamburgerToggler color="#d3531a" id="hamburger1" onClick={toggle} />
             <MDBCollapse isOpen={collapse1} navbar>
