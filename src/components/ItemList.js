@@ -175,7 +175,7 @@ const ItemList = ({ items, searchWord, searchCategory, path }) =>{
             }
             {ItemList}
             {
-                !presentPage && <Paginations/>
+                !presentPage && (width<=800? <Paginations type="small"/>:<Paginations type="big"/>)
             }
         </div>
     )

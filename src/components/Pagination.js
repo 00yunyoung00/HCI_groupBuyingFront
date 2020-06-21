@@ -1,10 +1,25 @@
 import React from "react"
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 import "./css/pagination.css";
-const Paginations = () => {
+const Paginations = ({ type }) => {
+
+    if(type==="small"){
+        return(
+            <div style={{marginLeft:'40%', display:'inline-block'}} color="black">
+        <Pagination aria-label="Page navigation example" style={{marginLeft: 'auto', marginRight: 'auto', marginBottom:'10px', textDecoration: 'none'}}>
+            <PaginationItem>
+                <PaginationLink previous href="#" />
+            </PaginationItem>
+            <PaginationItem>
+                <PaginationLink next href="#" />
+            </PaginationItem>
+        </Pagination>
+        </div>
+        )
+    }
 
     return(
-        <div style={{marginLeft:'auto', marginRight:'auto', display:'inline-block'}} color="black">
+        <div style={{marginLeft:'30%', marginRight:'auto', display:'inline-block'}} color="black">
         <Pagination aria-label="Page navigation example" style={{marginLeft: 'auto', marginRight: 'auto', marginBottom:'10px', textDecoration: 'none'}}>
             <PaginationItem>
                 <PaginationLink first href="#" />
