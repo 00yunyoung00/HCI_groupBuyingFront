@@ -14,7 +14,7 @@ import BurgerNavbar from './hamburger/BurgerNavbar';
 import UserContainer from './container/userContainer'
 import MyList from './components/MyList';
 import AddNewGB from './components/AddNewGB';
-
+import ReactNotification from "react-notifications-component"
 function useWindow(){ //리사이즈용
   
   const [size, setSize]=useState([window.innerHeight, window.innerWidth]);
@@ -62,6 +62,7 @@ const App = () => {
 
   return (
     <div style={mainStyle}>
+      <ReactNotification/>
       <BrowserRouter>
       <p>
         <UserContainer/></p>

@@ -9,8 +9,10 @@ import Notices from "./Notice";
 import Editor from "./Editor";
 import QnAs from "./QnAs";
 
+import "animate.css-react"
+import "react-notifications-component/dist/theme.css";
 import './css/ItemDetail.css'
-
+import Notif from "./Notification";
 const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
     //var itemName=match.params.name;
@@ -37,8 +39,10 @@ const ItemDetail = ({ match }) =>{
     if(pastPath==="demandSurvey"){
         var btn = <Link to={`/submitForm/${idx}`}><Button >submit</Button></Link>
     }else if(pastPath==="ongoing"){
-        btn = <Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55'}} block>Join</Button></Link>
-        
+        btn = <Row xs="2"><Col xs="9"><Link to={`/submitForm/${idx}`}><Button style={{backgroundColor: '#e65e55', borderColor: '#e65e55', textDecorationColor: 'none'}} block>Join</Button></Link>
+                </Col>
+                <Col xs="3"><Notif/></Col>
+        </Row>
     
     }else{
         btn=null
@@ -50,23 +54,28 @@ const ItemDetail = ({ match }) =>{
                 <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
                 <BreadcrumbItem tag="a" href={`/${pastPath}`}>{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
-    </Breadcrumb>
+    </Breadcrumb> <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}<br/></Col>
+            
             <Row>
+               
                 <Col me={4}>
                     <img src={item.img} style={{width:'100%', margin:'5%'}}/>
                 </Col>
                 <Col md={8}>
 
-                    <Container className="itemNameBox">
-                        {item.name}
-                </Container>
                 <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
-                
-                    <span style={{fontSize: '3rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
+      
+                    <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
                     <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span>
-                   <br/>
-                   <span style={{fontSize: '3rem', color: '#404040', fontWeight: 'bold'}}>{item.price}</span>
-                    <span style={{fontSize: '1rem'}}>&nbsp; Korean won</span>
+                    </Container>
+                    <Container>
+                    <span style={{fontSize: '2rem', color: '#666666', fontWeight: 'bold'}}>{item.leftDate}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; days to go</span>
+                   </Container>
+                   <Container>
+                    <span style={{fontSize: '2rem', color: '#666666', fontWeight: 'bold'}}>{item.price}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; Korean won</span> 
+                    
                    
                     </Container>
                     <Container className="briefInfoBox">
