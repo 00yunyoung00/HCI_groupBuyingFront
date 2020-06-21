@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
-import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
+import { Tooltip, Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
 import { FcSpeaker } from "react-icons/fc";
 import classnames from "classnames";
 import {Line} from 'rc-progress';
@@ -33,10 +33,12 @@ const ItemDetail = ({ match }) =>{
     
     
     const [activeTab, setActiveTab] = useState('1');
-
+    const [tooltipOpen, setTooltipOpen]=useState(false);
     const toggle = tab => {
       if(activeTab !== tab) setActiveTab(tab);
     }
+
+    const toggleTooltip=()=>setTooltipOpen(!tooltipOpen);
 
     const items=useSelector(items=>items.items.items);
 
@@ -70,7 +72,9 @@ const ItemDetail = ({ match }) =>{
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
          </Breadcrumb> 
     
-            <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}&nbsp;&nbsp;<FcSpeaker onClick={()=>speak({text:item.name})}/></Col>
+            <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}&nbsp;&nbsp;<FcSpeaker onClick={()=>speak({text:item.name})} id="TooltipExample"/><Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggleTooltip}>
+        Hello world!
+      </Tooltip></Col>
             <Row>
                 <Col md={6}>
                     <img src={item.img} style={{width:'400px',height:'350px', margin:'5%'}}/>

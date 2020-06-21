@@ -17,7 +17,7 @@ const SubmitForm = ({ history, match }) =>{
     
       const toggle = () => {
           if(formvalue.phone===""||formvalue.amount===""){
-            alert("Incorrect PhoneNumber type");
+            alert("Incorrect Input type: Please fill phone number and quantity");
           }else {
             if(pastpath==="demandSurvey"){
                 for(var i=0; i<items.length; i++){
