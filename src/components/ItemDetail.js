@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem, Row, Col, Nav, NavItem, TabContent, TabPane, NavLink, Button, Container } from "reactstrap"
+import { FcSpeaker } from "react-icons/fc";
 import classnames from "classnames";
 import {Line} from 'rc-progress';
 import ItemInformation from "./ItemInformation";
@@ -14,15 +15,21 @@ import "react-notifications-component/dist/theme.css";
 import './css/ItemDetail.css'
 import Notif from "./Notification";
 import { changePath } from "../modules/path";
+
+import { useSpeechSynthesis } from 'react-speech-kit';
+
 const ItemDetail = ({ match }) =>{
     var pastPath=match.params.path;
     //var itemName=match.params.name;
     var idx=match.params.idx;
 
+    const { speak } = useSpeechSynthesis();
+
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(changePath(pastPath));
     }, [dispatch, pastPath])
+
     
     
     const [activeTab, setActiveTab] = useState('1');
@@ -62,8 +69,9 @@ const ItemDetail = ({ match }) =>{
                 <BreadcrumbItem tag="a" href="/">Home</BreadcrumbItem>
                 <BreadcrumbItem tag="a" href={`/${pastPath}`}>{pastPath}</BreadcrumbItem>
                 <BreadcrumbItem active tag="span">Item</BreadcrumbItem>
-    </Breadcrumb> <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}</Col>
-            
+         </Breadcrumb> 
+    
+            <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}&nbsp;&nbsp;<FcSpeaker onClick={()=>speak({text:item.name})}/></Col>
             <Row>
                 <Col md={6}>
                     <img src={item.img} style={{width:'400px',height:'350px', margin:'5%'}}/>
