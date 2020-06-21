@@ -55,7 +55,6 @@ const ItemDetail = ({ match }) =>{
     }else{
         btn=null
     }
-
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
@@ -71,12 +70,19 @@ const ItemDetail = ({ match }) =>{
                 <Col md={6}>
 <br/>
 
-
-                <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
+                
+               
+                    {pastPath==="ongoing" ?  <Container> <Line percent={percents} strokeWidth="1" trailWidth="1"strokeColor= "#e65e55" />  <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span> </Container>
+                    :
+                   <Container> <Line percent={percents} strokeWidth="1" trailWidth="1"strokeColor="#60b5d6" /> <span style={{fontSize: '2rem', color: '#60b5d6', fontWeight: 'bold'}}>{item.currentNumber}</span>
+                   <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span> </Container>
                     
-                    <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
-                    <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span>
-                    </Container>
+                    }
+                    
+                    
+                   
+                   
                     <Container>
                     <span style={{fontSize: '2rem', color: '#666666', fontWeight: 'bold'}}>{item.leftDate}</span>
                     <span style={{fontSize: '1rem'}}>&nbsp; days to go</span>

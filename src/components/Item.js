@@ -18,8 +18,11 @@ const Item = ({ path, img, name, idx, price, currentNumber, minimumNumber, leftD
                     <CardImg top width="100px" height="160px" src={img} alt="thumbnail image"/>
                     <CardBody>
                         <div style={FontSize}> {leftDate} days left</div>
-                        <Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="red" />  {/*상태바는 최소 인원에서 몇 명 모였는지?를 나타내고 싶다.  */}
-    <br/> <CardTitle>{name}  </CardTitle><br/>
+                        {path==="ongoing"? <Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="red" />  
+   :
+   <Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#60b5d6" />  
+}
+                       <br/> <CardTitle>{name}  </CardTitle><br/>
                         
     <CardText className="text-right">
     <small className="text-muted">{percents}%</small>
