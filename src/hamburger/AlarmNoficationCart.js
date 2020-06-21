@@ -27,7 +27,11 @@ const handleOnClickDefault=()=>{
         insert: "top",
         animationIn: ["animated", "fadeIn"],
         animationOut: ["animated", "fadeOut"],
-        
+        dismiss: {
+          duration: 7000,
+          onScreen: true,
+          pauseOnHover: true
+        },
     })
 
 }

@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { Breadcrumb, BreadcrumbItem, Row, Col, Container, Form, 
+import {Alert, Breadcrumb, BreadcrumbItem, Row, Col, Container, Form, 
             FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormFeedback } from "reactstrap";
         
 import { changeItems } from '../modules/items'
-
+import {Line} from 'rc-progress';
 import './css/ItemDetail.css'
 import { Redirect } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const SubmitForm = ({ history, match }) =>{
     
       const toggle = () => {
           if(formvalue.phone===""||formvalue.amount===""){
-            alert("입력 똑디 하슈");
+            alert("Incorrect PhoneNumber type");
           }else {
             if(pastpath==="demandSurvey"){
                 for(var i=0; i<items.length; i++){
@@ -62,7 +62,9 @@ const SubmitForm = ({ history, match }) =>{
         if(dispatch) dispatch(changeItems(items));
         history.push(`/itemDetail/${pastpath}/${idx}`)
       }
-
+      var percents=0;   //기본 디폴트 몇 명 찼는지
+    percents=(item.currentNumber/item.minimumNumber)*100;
+    
     return(
         <div>
             <Breadcrumb tag="nav" listTag="div">
@@ -71,20 +73,46 @@ const SubmitForm = ({ history, match }) =>{
             <BreadcrumbItem tag="a" href={`/itemDetail/${pastpath}/${idx}`}>Item</BreadcrumbItem>
             <BreadcrumbItem active tag="span">SubmitForm</BreadcrumbItem>
             </Breadcrumb>
+            <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}</Col>
+            
             <Row>
-                <Col me={4}>
-                    <img src={item.img} style={{width:'100%'}}/>
+                <Col md={6}>
+                    <img src={item.img} style={{width:'400px',height:'350px', margin:'5%'}}/>
                 </Col>
-                <Col md={8}>
-                    <Container className="itemNameBox">
-                        {item.name}
+                <Col md={6}>
+<br/>
+
+
+                <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
+                    
+                    <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; people joined : {percents}%</span>
+                    </Container>
+                    <Container>
+                    <span style={{fontSize: '2rem', color: '#666666', fontWeight: 'bold'}}>{item.leftDate}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; days to go</span>
+                   </Container>
+                   <Container>
+                    <span style={{fontSize: '2rem', color: '#666666', fontWeight: 'bold'}}>{item.price}</span>
+                    <span style={{fontSize: '1rem'}}>&nbsp; Korean won</span> 
+                    
+                   
                     </Container>
                     <Container className="briefInfoBox">
-                        brief information
+                        This is simple item design. But,  4th OFFICIAL BASEBALL JUMPER RARE [EWHA SELLER].
+
+MINT CONDITION NEVER WORN
+
+ORIGINAL TAG
+
+TAKEN OUT OF BAG FOR PHOTOS ONLY
+
+One size fits like a unisex Medium <p/><p/>
                     </Container>
-                    <Container className="priceInfoBox">
-                        price : {item.price}
-                    </Container>
+                    <br/>
+    <Container><Alert color="info" style={{textAlign: 'center'}}>Welcome! You are the {++item.currentNumber}th Joiner!</Alert></Container>
+                    
+                   
                 </Col>
             </Row>
             <div>

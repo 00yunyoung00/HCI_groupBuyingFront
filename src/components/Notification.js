@@ -8,7 +8,7 @@ function Notif(){
     const handleOnClickDefault=()=>{
         store.addNotification({
             title: "REMIND ME",
-            message: "We'll remind you this project later through your email.",
+            message: "We'll remind you this project later through your account.",
             type: "info",
             container: "top-right",
             insert: "top",
@@ -16,7 +16,8 @@ function Notif(){
             animationOut: ["animated", "fadeOut"],
             dismiss: {
                 duration: 7000,
-                onScreen: true
+                onScreen: true,
+                pauseOnHover: true
               },
         })
     }

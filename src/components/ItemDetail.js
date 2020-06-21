@@ -59,14 +59,13 @@ const ItemDetail = ({ match }) =>{
     </Breadcrumb> <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}</Col>
             
             <Row>
-               
                 <Col md={6}>
-                    <img src={item.img} style={{width:'100%', margin:'5%'}}/>
+                    <img src={item.img} style={{width:'400px',height:'350px', margin:'5%'}}/>
                 </Col>
                 <Col md={6}>
 <br/>
 
-<br/>
+
                 <Container><Line percent={percents} strokeWidth="1" trailWidth="1" strokeColor="#e65e55" />
                     
                     <span style={{fontSize: '2rem', color: '#e65e55', fontWeight: 'bold'}}>{item.currentNumber}</span>

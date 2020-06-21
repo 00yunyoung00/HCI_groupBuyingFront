@@ -5,7 +5,7 @@ const Paginations = () => {
 
     return(
         <div style={{marginLeft:'auto', marginRight:'auto', display:'inline-block'}} color="black">
-        <Pagination aria-label="Page navigation example" style={{marginLeft:'100%', marginRight:'100%', marginBottom:'10px', textDecoration: 'none'}}>
+        <Pagination aria-label="Page navigation example" style={{marginLeft: 'auto', marginRight: 'auto', marginBottom:'10px', textDecoration: 'none'}}>
             <PaginationItem>
                 <PaginationLink first href="#" />
             </PaginationItem>

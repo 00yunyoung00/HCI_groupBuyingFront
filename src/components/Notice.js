@@ -10,9 +10,9 @@ const Notice = <Card>
 <CardBody>
     <CardTitle>datetime / writer</CardTitle>
     <CardBody>
-        공지~~~<p/>
-        언제언제 여기여기에서 배부할겨~~<p/>
-        -쥔장드림-
+        Please Read this Notice<p/>
+        In July 27th, all the items will be distributed in ECC hall.<p/>
+        
     </CardBody>
 </CardBody>
 </Card>
