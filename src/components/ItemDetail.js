@@ -73,7 +73,7 @@ const ItemDetail = ({ match }) =>{
          </Breadcrumb> 
     
             <Col style={{fontSize: '2rem', fontWeight: 'bold', textAlign: 'center'}}>{item.name}&nbsp;&nbsp;<FcSpeaker onClick={()=>speak({text:item.name})} id="TooltipExample"/><Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggleTooltip}>
-        Hello world!
+        Text to Speech service 
       </Tooltip></Col>
             <Row>
                 <Col md={6}>
