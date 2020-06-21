@@ -19,7 +19,7 @@ const SubmitForm = ({ history, match }) =>{
           if(formvalue.phone===""||formvalue.amount===""){
             alert("Incorrect Input type: Please fill phone number and quantity");
           }else {
-            if(pastpath==="demandSurvey"){
+            if(pastpath==="demandSurvey" || pastpath==="ongoing"){
                 for(var i=0; i<items.length; i++){
                     if(items[i].idx===idx){
                         items[i].currentNumber++;
@@ -58,6 +58,8 @@ const SubmitForm = ({ history, match }) =>{
         const { value, name } = e.target;
         formvalue[name]=value;
       }
+
+      var tempnum = item.currentNumber
 
       const onSubmit = () => {
         if(dispatch) dispatch(changeItems(items));
@@ -111,7 +113,7 @@ TAKEN OUT OF BAG FOR PHOTOS ONLY
 One size fits like a unisex Medium <p/><p/>
                     </Container>
                     <br/>
-    <Container><Alert color="info" style={{textAlign: 'center'}}>Welcome! You are the {++item.currentNumber}th Joiner!</Alert></Container>
+    <Container><Alert color="info" style={{textAlign: 'center'}}>Welcome! You are the {++tempnum}th Joiner!</Alert></Container>
                     
                    
                 </Col>
