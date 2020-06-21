@@ -10,8 +10,8 @@ const qna = <Card>
 <CardBody>
     <CardTitle>datetime / writer</CardTitle>
     <CardBody>
-        질문이이써여<p/>
-        이거 언제언제 나오나여
+        I have a question.<p/>
+        I wonder when this project ends.
     </CardBody>
 </CardBody>
 </Card>
